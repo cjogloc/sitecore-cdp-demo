@@ -300,5 +300,18 @@
 </html>
 
 <script>
+
+  _boxeverq.push(function(){
+    var viewEvent={
+      channel:"WEB",
+      type:"VIEW",
+      language:"EN",
+      currency:"AUD",
+      page: "index.html",
+      pos: "mnjKumar",
+      browser_id:Boxever.getID(),
+    };
+    Boxever.eventCreate(viewEvent,function(data){},"json");
+  })
  
 </script>
