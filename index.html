@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script> 
-  <script src="js/global.js" async></script>
+  <script src="js/global.js"></script>
 </head>
 <body>
   <div class="bg-white">
@@ -301,17 +301,22 @@
 
 <script>
 
-  _boxeverq.push(function(){
-    var viewEvent={
-      channel:"WEB",
-      type:"VIEW",
-      language:"EN",
-      currency:"AUD",
-      page: "index.html",
-      pos: "mnjKumar",
-      browser_id:Boxever.getID(),
+_boxeverq.push(() => { 
+    const viewEvent = { 
+        browser_id: Boxever.getID(),
+        channel: "WEB",
+        type: "VIEW",
+        language: "EN",
+        currency: "AUD",
+        page: "index-cdp-demo",
+        pos: "mnjKumar",
     };
-    Boxever.eventCreate(viewEvent,function(data){},"json");
-  })
- 
+
+    // Send the event data to the server
+    Boxever.eventCreate(
+        viewEvent, 
+        response => console.log(response),
+        "json"
+    );
+});
 </script>
