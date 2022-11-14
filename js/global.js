@@ -2,6 +2,27 @@
     // Define the Boxever queue 
     var _boxeverq = _boxeverq || [];
 
+
+   //Defining the global page view event.
+_boxeverq.push(() => { 
+    const viewEvent = { 
+        browser_id: Boxever.getID(),
+        channel: "WEB",
+        type: "VIEW",
+        language: "EN",
+        currency: "AUD",
+        page: window.location.pathname,
+        pos: "mnjKumar",
+    };
+
+    // Send the event data to the server
+    Boxever.eventCreate(
+        viewEvent, 
+        response => console.log(response),
+        "json"
+    );
+});
+
     // Define the Boxever settings 
     var _boxever_settings = {
         client_key: 'psfu6uh05hsr9c34rptlr06dn864cqrx', // Replace with your client key
@@ -18,3 +39,5 @@
          var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
     })();
  
+
+

@@ -299,24 +299,4 @@
 </body>
 </html>
 
-<script>
-var _boxeverq = _boxeverq || [];
-_boxeverq.push(() => { 
-    const viewEvent = { 
-        browser_id: Boxever.getID(),
-        channel: "WEB",
-        type: "VIEW",
-        language: "EN",
-        currency: "AUD",
-        page: "index-cdp-demo",
-        pos: "mnjKumar",
-    };
-
-    // Send the event data to the server
-    Boxever.eventCreate(
-        viewEvent, 
-        response => console.log(response),
-        "json"
-    );
-});
-</script>
+ 
