@@ -222,7 +222,7 @@
 
 <script>
 if(localStorage.getItem('userDetails')!== null){
-    document.getElementById('userDetails').innerHTML=JSON.parse(localStorage.getItem('userDetails'));
+    document.getElementById('userDetails').innerHTML= JSON.stringify(JSON.parse(localStorage.getItem('userDetails')));
 }else{
     document.getElementById('userDetails').innerHTML="Please register to see details";
 }
