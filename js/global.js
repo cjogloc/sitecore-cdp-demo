@@ -101,7 +101,7 @@ if(localStorage.getItem('userDetails')!== null){
         console.log(">>> Account details added to storage in 3 seconds "); 
         console.log(">> Redirecting to Account page")
         setTimeout(function(){
-          document.location.href="/account.html";
+          document.location.href="account.html";
         },3000);
         
         }
