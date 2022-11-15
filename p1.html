@@ -357,6 +357,8 @@ function addtoCart(){
 
   localStorage.setItem("addedProduct", JSON.stringify(product));
 
+  console.log(">> Product saved to storage");
+
   addProductToCart();
 	
 	Toastify({
@@ -375,20 +377,7 @@ function addtoCart(){
 
 }
 
-if(localStorage.getItem("cart") !== null){
-        cart = JSON.parse(localStorage.getItem("cart"));
-        var count = 0;
-
-        for (var i in cart) {
-            count += cart[i].productQty; 
-        }
-
-        console.log("Cart exists - " + count + " items in cart.");
-        if(count > 0){
-            $("#carticonqty").text(count);
-            $("#carticonqty").attr("style", "display:block;");
-        }
-    }
+ 
 </script>
 
 

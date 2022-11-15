@@ -129,5 +129,7 @@ if(localStorage.getItem('userDetails')!== null){
             response => console.log(response),
             "json"
         );
+
+        console.log(">> Event pushed to CDP")
     });
         }
