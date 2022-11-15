@@ -41,11 +41,11 @@ if(localStorage.getItem('userDetails')!== null){
             firstname: user.firstName,
             lastname: user.lastName,
             gender: user.gender,
-            dob: user.dob,
+            //dob: user.dob,
             mobile: user.mobile,
             city: user.city,
             state: user.state,
-            country: user.country,            
+            //country: user.country,            
             pos: "mnjKumar",
             identifiers: [{
                 "provider": "WEB",
@@ -92,7 +92,7 @@ if(localStorage.getItem('userDetails')!== null){
           country:  document.getElementById("country").value,
           mobile: document.getElementById("mobile").value,
           city: document.getElementById("city").value,
-          dob: "'"+document.getElementById("birthyear").value+"-"+document.getElementById("birthmonth").value+"-"+document.getElementById("birthday").value+"T00:00",
+          dob: ""+document.getElementById("birthyear").value+"-"+document.getElementById("birthmonth").value+"-"+document.getElementById("birthday").value+"T00:00",
           gender: document.getElementById("gender").value,
           state: document.getElementById('region').value,  
         };
