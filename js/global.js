@@ -49,7 +49,7 @@ if(localStorage.getItem('userDetails')!== null){
             pos: "mnjKumar",
             identifiers: [{
                 "provider": "WEB",
-                "id": user.email
+                "id": Math.floor(Math.random() * 10000) + 1
             }]
         };            
     
