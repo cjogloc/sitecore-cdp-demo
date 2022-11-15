@@ -363,8 +363,8 @@ function addtoCart(){
   var cart = [];
 
   if(localStorage.getItem("cart") === null){
-		//console.log("Cart doesn't exist: ");
-		cart.push(item);
+		console.log("Cart doesn't exist >> Create new cart ");
+		cart.push(product);
 	}else{
 		cart = JSON.parse(localStorage.getItem("cart"));
 		for (var i in cart) {
@@ -374,7 +374,8 @@ function addtoCart(){
 				return
 	        }
 	    }
-		cart.push(item);
+      console.log("Pushing data to existing cart ");
+		cart.push(product);
 	}    
 
   localStorage.setItem("cart", JSON.stringify(cart));
