@@ -347,6 +347,8 @@ function purchaseCart() {
                     console.log(">>>>> Cart page detected.");
 
                     if(localStorage.getItem("cart") !== null || localStorage.getItem("cart") !== "undefined"){
+                      $("#cartqty").html(JSON.parse(localStorage.getItem("cart")).length);
+
                         $("#purchaseButton").attr("disabled", false);
                         cart = JSON.parse(localStorage.getItem("cart"));
                         var count = 0;
