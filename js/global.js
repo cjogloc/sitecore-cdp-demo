@@ -105,3 +105,29 @@ if(localStorage.getItem('userDetails')!== null){
         },3000);
         
         }
+
+        function addProductToCart(){
+            var user = JSON.parse(localStorage.getItem("userDetails"));
+    _boxeverq.push(() => { 
+        const addEvent = { 
+            browser_id: Boxever.getID(),
+            channel: "WEB",
+            type: "ADD",
+            language: "EN",
+            currency: "AUD",
+            page: window.location.pathname,
+            email: user.email,         
+            //country: user.country,            
+            pos: "mnjKumar",
+            product: JSON.parse(localStorage.getItem("addedProduct"))
+        
+        };            
+    
+        // Send the event data to the server
+        Boxever.eventCreate(
+            identityEvent, 
+            response => console.log(response),
+            "json"
+        );
+    });
+        }
