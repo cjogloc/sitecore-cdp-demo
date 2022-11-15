@@ -359,7 +359,31 @@ function addtoCart(){
 
   console.log(">> Product saved to storage");
 
-  addProductToCart();
+  var user = JSON.parse(localStorage.getItem("userDetails"));
+    _boxeverq.push(() => { 
+        const addEvent = { 
+            browser_id: Boxever.getID(),
+            channel: "WEB",
+            type: "ADD",
+            language: "EN",
+            currency: "AUD",
+            page: window.location.pathname,
+            email: user.email,         
+            //country: user.country,            
+            pos: "mnjKumar",
+            product: JSON.parse(localStorage.getItem("addedProduct"))
+        
+        };            
+    
+        // Send the event data to the server
+        Boxever.eventCreate(
+            identityEvent, 
+            response => console.log(response),
+            "json"
+        );
+      });
+
+        console.log(">> Event pushed to CDP");
 	
 	Toastify({
   text: "Added to cart",
