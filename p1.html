@@ -355,7 +355,31 @@ function addtoCart(){
       referenceId:'PRO_1'
   };
 
+
+
+  
   localStorage.setItem("addedProduct", JSON.stringify(product));
+
+  var cart = [];
+
+  if(localStorage.getItem("cart") === null){
+		//console.log("Cart doesn't exist: ");
+		cart.push(item);
+	}else{
+		cart = JSON.parse(localStorage.getItem("cart"));
+		for (var i in cart) {
+		
+			if(cart[i].item_id == product.item_id){
+				cart[i].quantity += 1; 			
+				return
+	        }
+	    }
+		cart.push(item);
+	}    
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+
 
   console.log(">> Product saved to storage");
 
