@@ -323,7 +323,7 @@ $("#deliveryType").change(function(){
         var subTotal = 0;
         for (var i in cart) {
             count += cart[i].quantity; 
-            subTotal += (cart[i].quantity * cart[i].quantity);
+            subTotal += (cart[i].quantity * cart[i].price);
         }
         totalAmount = subTotal;
         $("#total").text(totalAmount);
