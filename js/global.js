@@ -125,7 +125,7 @@ if(localStorage.getItem('userDetails')!== null){
     
         // Send the event data to the server
         Boxever.eventCreate(
-            identityEvent, 
+            addEvent, 
             response => console.log(response),
             "json"
         );
@@ -140,3 +140,70 @@ if(localStorage.getItem('userDetails')!== null){
         document.getElementById('carticonqty').innerHTML=cartData.length;
     }
  
+
+
+    function confirmPurchase(){
+        var cartItems = JSON.parse(localStorage.getItem("cart"));
+var purchasedProducts=[];
+
+        for(const cart in cartItems){
+            purchasedProducts.push({
+                item_id: cart.item_id
+            });
+        }
+
+        console.log(">> Items for confirm event:"+purchasedProducts)
+        _boxeverq.push(() => { 
+            const addEvent = { 
+                browser_id: Boxever.getID(),
+                channel: "WEB",
+                type: "CONFIRM",
+                language: "EN",
+                currency: "AUD",
+                page: window.location.pathname,
+                email: user.email, 
+                pos: "mnjKumar",
+                product: purchasedProducts
+            
+            };            
+        
+            // Send the event data to the server
+            Boxever.eventCreate(
+                addEvent, 
+                response => console.log(response),
+                "json"
+            );
+    
+            console.log(">> Confirm Event pushed to CDP");
+        });
+}
+
+
+function checkoutPurchse(){
+    var OrderID=localStorage.getItem('orderId');
+    console.log(">> Generating Order ID:"+OrderID)
+    _boxeverq.push(() => { 
+        const addEvent = { 
+            browser_id: Boxever.getID(),
+            channel: "WEB",
+            type: "CHECKOUT",
+            language: "EN",
+            currency: "AUD",
+            page: window.location.pathname,
+            email: user.email, 
+            pos: "mnjKumar",
+            rerference_id: OrderID,
+            status:"PURCHASED"
+        
+        };            
+    
+        // Send the event data to the server
+        Boxever.eventCreate(
+            addEvent, 
+            response => console.log(response),
+            "json"
+        );
+
+        console.log(">> Checkout Event pushed to CDP");
+    });
+}
