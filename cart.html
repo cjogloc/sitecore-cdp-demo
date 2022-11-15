@@ -1,13 +1,16 @@
 <!doctype html>
 <html>
 <head>
-<title>Store</title>
+<title>Cart</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script> 
-   
+  <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+ 
+
+		  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
-<body>
+<body  >
   <div class="bg-white">
   <!--
     Mobile menu
@@ -79,7 +82,7 @@
             <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Sign in</a>
           </div>
           <div class="flow-root">
-            <a href="register.html" class="-m-2 p-2 block font-medium text-gray-900">Create account</a>
+            <a href="register" class="-m-2 p-2 block font-medium text-gray-900">Create account</a>
           </div>
         </div>
 
@@ -179,7 +182,7 @@
 
             <!-- Search -->
             <div class="flex lg:ml-6">
-              <a href="cart.html" class="p-2 text-gray-400 hover:text-gray-500">
+              <a href="#" class="p-2 text-gray-400 hover:text-gray-500">
                 <span class="sr-only">Search</span>
                 <!-- Heroicon name: outline/search -->
                 <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -190,12 +193,12 @@
 
             <!-- Cart -->
             <div class="ml-4 flow-root lg:ml-6">
-              <a href="#" class="group -m-2 p-2 flex items-center">
+              <a href="cart.html" class="group -m-2 p-2 flex items-center">
                 <!-- Heroicon name: outline/shopping-bag -->
                 <svg class="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
-                <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800" id="carticonqty">0</span>
+                <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800" id="cartqty">0</span>
                 <span class="sr-only">items in cart, view bag</span>
               </a>
             </div>
@@ -205,98 +208,189 @@
     </nav>
   </header>
 </div>
-<div class="relative bg-white overflow-hidden">
-  <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
-      <div class="sm:max-w-lg">
-        <h1 class="text-4xl font font-extrabold tracking-tight text-gray-900 sm:text-6xl">Summer styles are finally here</h1>
-        <p class="mt-4 text-xl text-gray-500">This year, our new summer collection will shelter you from the harsh elements of a world that doesn't care if you live or die.</p>
+
+ <div class=" mt-10  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex shadow-md my-10">
+      <div class="w-3/4 bg-white px-10 py-10">
+        <div class="flex justify-between border-b pb-8">
+          <h1 class="font-semibold text-2xl">Shopping Cart</h1>
+          <h2 class="font-semibold text-2xl"><span id="cartqty">0</span> Items</h2>
+        </div>
+         <div class="box-content">
+                            <div class="cart-items">
+                                <table class="styled-table w-full">
+                                    <thead>
+                                        <tr>
+                                            <th class="col_product text-left">Product</th>
+                                            <th class="col_qty text-right">Qty</th>
+                                            <th class="col_single text-right">Single</th>
+                                            <th class="col_total text-right">Total</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="cartTable">                                 
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+        <!--<a href="#" class="flex font-semibold text-indigo-600 text-sm mt-10">
+      
+          <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/></svg>
+          Continue Shopping
+        </a>-->
       </div>
-      <div>
-        <div class="mt-10">
-          <!-- Decorative image grid -->
-          <div aria-hidden="true" class="pointer-events-none lg:absolute lg:inset-y-0 lg:max-w-7xl lg:mx-auto lg:w-full">
-            <div class="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
-              <div class="flex items-center space-x-6 lg:space-x-8">
-                <div class="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                  <div class="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
-                    <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg" alt="" class="w-full h-full object-center object-cover">
-                  </div>
-                  <div class="w-44 h-64 rounded-lg overflow-hidden">
-                    <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg" alt="" class="w-full h-full object-center object-cover">
-                  </div>
-                </div>
-                <div class="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                  <div class="w-44 h-64 rounded-lg overflow-hidden">
-                    <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg" alt="" class="w-full h-full object-center object-cover">
-                  </div>
-                  <div class="w-44 h-64 rounded-lg overflow-hidden">
-                    <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg" alt="" class="w-full h-full object-center object-cover">
-                  </div>
-                  <div class="w-44 h-64 rounded-lg overflow-hidden">
-                    <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg" alt="" class="w-full h-full object-center object-cover">
-                  </div>
-                </div>
-                <div class="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                  <div class="w-44 h-64 rounded-lg overflow-hidden">
-                    <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg" alt="" class="w-full h-full object-center object-cover">
-                  </div>
-                  <div class="w-44 h-64 rounded-lg overflow-hidden">
-                    <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg" alt="" class="w-full h-full object-center object-cover">
-                  </div>
-                </div>
-              </div>
-            </div>
+
+      <div id="summary" class="w-1/4 px-8 py-10">
+        <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
+        <div class="flex justify-between mt-10 mb-5">
+          <span class="font-semibold text-sm uppercase">Subtotal</span>
+          <span class="font-semibold text-sm">$<span id="subTotal">0</span></span>
+        </div>
+        <div>
+          <label class="font-medium inline-block mb-3 text-sm uppercase">Delivery Type</label>
+          <select class="block p-2 text-gray-600 w-full text-sm" id="deliveryType">
+            <option value="homeaddress">Home Delivery - $5.00</option>
+			<option value="storepickup">Store pickup - $0.00</option>
+          </select>
+        </div>
+		
+		 <div class="border-t mt-8">
+          <div class="flex font-semibold justify-between py-6 text-sm uppercase">
+            <span>Delivery Cost</span>
+            <span>$<span id="deliveryCost">5.00</span></span>
           </div>
-
-          <a href="#" class="inline-block text-center bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700">Shop Collection</a>
+         
+        </div>
+        
+        
+        <div class="border-t mt-8">
+          <div class="flex font-semibold justify-between py-6 text-sm uppercase">
+            <span>Total cost</span>
+            <span>$<span id="total">0</span></span>
+          </div>
+		  
+		  <div class="mt-5 border-t">
+          <label class="font-medium inline-block mb-3 text-sm uppercase mt-5">Payment Mode</label>
+          <select class="block p-2 text-gray-600 w-full text-sm" id="paymentType">
+            <option value="visa">Visa</option>
+			<option value="mastercard">Mastercard</option>
+			<option value="bitcoin">Bitcoin</option>
+          </select>
+        </div>
+          <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 mt-10 text-sm text-white uppercase w-full" type="button" onclick="purchaseCart()">Checkout</button>
         </div>
       </div>
+
     </div>
   </div>
-</div>
-<div class="bg-white">
-  <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-    <h2 class="sr-only">Products</h2>
 
-    <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-      <a href="p1.html" class="group">
-        <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-          <img src="https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/40/406/3828/100/3/901234990/901234990_1_720x928.webp" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="w-full h-full object-center object-cover group-hover:opacity-75">
-        </div>
-        <h3 class="mt-4 text-sm text-gray-700">Men - Product 1</h3>
-        <p class="mt-1 text-lg font-medium text-gray-900">$48</p>
-      </a>
 
-      <a href="p2.html" class="group">
-        <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-          <img src="https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/45/467/2426/202/1/896180950/896180950_1_720x928.webp" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="w-full h-full object-center object-cover group-hover:opacity-75">
-        </div>
-        <h3 class="mt-4 text-sm text-gray-700">Women - Product 1</h3>
-        <p class="mt-1 text-lg font-medium text-gray-900">$35</p>
-      </a>
 
-      <a href="p3.html" class="group">
-        <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-          <img src="https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/40/401/3639/200/7/835469110/835469110_1_720x928.webp" alt="Person using a pen to cross a task off a productivity paper card." class="w-full h-full object-center object-cover group-hover:opacity-75">
-        </div>
-        <h3 class="mt-4 text-sm text-gray-700">Men - Product 2</h3>
-        <p class="mt-1 text-lg font-medium text-gray-900">$89</p>
-      </a>
 
-      <a href="p4.html" class="group">
-        <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-          <img src="https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/45/353/2687/102/2/891139330/891139330_1_720x928.webp" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="w-full h-full object-center object-cover group-hover:opacity-75">
-        </div>
-        <h3 class="mt-4 text-sm text-gray-700">Women - Product 2</h3>
-        <p class="mt-1 text-lg font-medium text-gray-900">$95</p>
-      </a>
 
-      <!-- More products... -->
-    </div>
-  </div>
-</div>
-</body>
-</html>
+<script>
+function clearCart() {
+    localStorage.removeItem("cart");
+    
+    $("#carticonqty").attr("style", "display:none;");
+    cartTable.innerHTML = "";
+    return false;
+}
+$("#deliveryType").change(function(){
+    //selection changed
+	console.log(this.value);
+    if(this.value == "homeaddress"){
+        $("#deliveryCost").text("5.00");
+        cart = JSON.parse(localStorage.getItem("cart"));
+        var count = 0;
+        var cartString = "";
+        var totalAmount = 0;
+        var subTotal = 0;
+        for (var i in cart) {
+            count += cart[i].quantity; 
+            subTotal += (cart[i].quantity * cart[i].price);
+        }
+        totalAmount = subTotal + 5;
+        $("#total").text(totalAmount);
+    }else if(this.value == "storepickup"){
+        $("#deliveryCost").text("0.00");
+        cart = JSON.parse(localStorage.getItem("cart"));
+        var count = 0;
+        var cartString = "";
+        var totalAmount = 0;
+        var subTotal = 0;
+        for (var i in cart) {
+            count += cart[i].quantity; 
+            subTotal += (cart[i].quantity * cart[i].quantity);
+        }
+        totalAmount = subTotal;
+        $("#total").text(totalAmount);
+    }
+});
 
+function purchaseCart() {
+	min = Math.ceil(100000000);
+    max = Math.floor(900000000);
+    var orderId = Math.floor(Math.random() * (max - min)) + min;
+    localStorage.setItem('orderId', orderId);
+    localStorage.setItem('paymentType', document.getElementById("paymentType").value);
+    localStorage.setItem('deliveryType', document.getElementById("deliveryType").value);
+    localStorage.setItem('totalAmount', document.getElementById("total").innerText);
+	localStorage.setItem('shippingCharges',document.getElementById("deliveryCost").innerText);
+   
+    document.location.href = "purchase.html";
+}
+
+ 
+                    console.log(">>>>> Cart page detected.");
+
+                    if(localStorage.getItem("cart") !== null || localStorage.getItem("cart") !== "undefined"){
+                        $("#purchaseButton").attr("disabled", false);
+                        cart = JSON.parse(localStorage.getItem("cart"));
+                        var count = 0;
+                        var cartString = "";
+                        var totalAmount = 0;
+                        var subTotal = 0;
+                        for (var i in cart) {
+                            count += cart[i].quantity; 
+
+                            str = "<tr>" 
+                            + "<td data-title='Product' class='col_product text-left'>"
+                          
+                            + "<h5>" + cart[i].productName + "</h5></td>"
+                            + "<td data-title='Qty' class='col_qty text-right'>"
+                            + "<span class='single-price'>" + cart[i].quantity + "</span>"
+                            + "<td data-title='Single' class='col_single text-right'>"
+                            + "<span class='single-price'>" + cart[i].price + "</span></td>"
+                            + "<td data-title='Total' class='col_total text-right'>"
+                            + "<span class='total-price'>" + (cart[i].quantity * cart[i].price) + "</span></td>";
+
+                            cartString += str;
+
+                            subTotal += (cart[i].quantity * cart[i].price);
+                        }
+                        
+                        totalAmount = (subTotal + 5);
+
+
+                        if(count !== "0"){
+                            $("#purchaseButton").attr("disabled", true);
+                        }
+
+                        console.log("Cart exists - " + count + " items in cart.");
+                        if(count > 0){
+                            $("#cartqty").text(count);
+                            $("#carticonqty").attr("style", "display:block;");
+                            $("#purchaseButton").attr("disabled", false);
+                            cartTable.innerHTML = cartString;
+
+                            var total = totalAmount.toFixed(2);
+                            $("#subTotal").text(subTotal);
+                            $("#total").text(total);
+                        }
+                    }
+                
+</script>
 <script src="js/global.js"></script>
