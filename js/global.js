@@ -130,6 +130,12 @@ if(localStorage.getItem('userDetails')!== null){
             "json"
         );
 
-        console.log(">> Event pushed to CDP")
+        console.log(">> Event pushed to CDP");
     });
         }
+
+
+    if(localStorage.getItem('cart')!==null){
+        var cartData=JSON.parse(localStorage.getItem("cart"));
+        document.getElementById('carticonqty').innerHTML=cartData.length;
+    }
