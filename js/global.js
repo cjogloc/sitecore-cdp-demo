@@ -15,6 +15,8 @@ _boxeverq.push(() => {
         pos: "mnjKumar",
     };
 
+    Boxever.addUTMParams(viewEvent); 
+
     // Send the event data to the server
     Boxever.eventCreate(
         viewEvent, 
