@@ -134,8 +134,9 @@ if(localStorage.getItem('userDetails')!== null){
     });
         }
 
-
+        (function() {
     if(localStorage.getItem('cart')!==null){
         var cartData=JSON.parse(localStorage.getItem("cart"));
         document.getElementById('carticonqty').innerHTML=cartData.length;
     }
+});
