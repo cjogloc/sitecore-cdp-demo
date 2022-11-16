@@ -226,8 +226,10 @@ Delivery will be done to your <span id="deliveryType"></span>.
 var orderId=localStorage.getItem('orderId');
 var deliveryType=localStorage.getItem('deliveryType');
 
-$("#orderId").text(orderId);
-$("#deliveryType").text(deliveryType);
+document.getElementById('orderId').innerText=orderId;
+
+document.getElementById('deliveryType').innerText=deliveryType;
+ 
 
 function clearCart() {
     localStorage.removeItem("cart");    
