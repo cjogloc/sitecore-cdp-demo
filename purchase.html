@@ -239,9 +239,9 @@ function clearCart() {
 
 var user = JSON.parse(localStorage.getItem("userDetails"));
 var cartItems = JSON.parse(localStorage.getItem("cart"));
-var purchasedProducts=cartItems.map(a => a.item_id);
-
-        
+var purchasedProducts=[];
+ 
+cartItems.forEach(c => purchasedProducts.push({item_id:c.item_id}));
         console.log(purchasedProducts);
 
         console.log(">> Items for confirm event:"+purchasedProducts)
